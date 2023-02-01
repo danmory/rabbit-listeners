@@ -33,7 +33,7 @@ def run_listener(params, queue_name, out_filename):
   with pika.BlockingConnection(params) as connection:
       with connection.channel() as channel:
         with open(out_filename, "a") as out_file:
-          start_consuming(channel, queue_name, on_message(out_file), False)
+          start_consuming(channel, queue_name, on_message(out_file), True)
 
 
 def main():

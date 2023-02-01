@@ -14,4 +14,10 @@ All configuration is in *config.yaml*.
 1. Add your configuration to *config.yaml*.
 2. Run
 
-    ``$ python main.py``
+    ``$ python listener.py``
+
+## Additional: parser
+
+To parse collected data and retrieve only needed part use *parse_output.py*.
+
+``$ python parse_output.py``
