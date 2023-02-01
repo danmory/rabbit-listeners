@@ -1,23 +1,18 @@
 import re
 import yaml
+import conf
 
 
 REGEXP = r'(?<=\"err\").*'
 
 
-def read_config():
-  with open("config.yaml", "r") as f:
-    config = yaml.safe_load(f)
-  return config
-
-
 def main():
-  config = read_config()
+  config = conf.read()
   files = list(map(lambda q: q["out"], config["queues"]))
   for f in files:
     print("reading %s" % f)
     with open(f, "r") as file:
-      with open("parsed.txt", "a") as file_parsed:
+      with open(config["parsed"], "a") as file_parsed:
         for line in file.readlines():
           match = re.search(REGEXP, line)
           if match is not None:

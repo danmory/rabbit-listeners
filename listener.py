@@ -1,12 +1,7 @@
 import multiprocessing
 import pika
 import yaml
-
-
-def read_config():
-  with open("config.yaml", "r") as f:
-    config = yaml.safe_load(f)
-  return config
+import conf
 
 
 def on_message(out_file=None):
@@ -37,7 +32,7 @@ def run_listener(params, queue_name, out_filename):
 
 
 def main():
-  config = read_config()
+  config = conf.read()
   credentials = pika.PlainCredentials(config["user"], config["pass"])
   params = pika.ConnectionParameters(
     host=config["addr"],

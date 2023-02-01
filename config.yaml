@@ -9,3 +9,5 @@ queues:
     out: out1.txt
   - name: "error_malformed"
     out: out2.txt
+
+parsed: parsed.txt
